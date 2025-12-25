@@ -1,0 +1,181 @@
+<!--
+  index.html
+  Ejemplo de página web responsiva y lista para editar.
+  Guardar como "index.html" y abrir en el navegador.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Página de ejemplo</title>
+  <meta name="description" content="Página de inicio simple, responsiva y fácil de editar." />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#3b82f6;--muted:#94a3b8;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#e6eef8;background:linear-gradient(180deg,#071027 0%, #081428 100%);}
+    a{color:var(--accent);text-decoration:none}
+    header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;color:#021024;font-weight:700}
+    nav{display:flex;gap:18px}
+    .btn{padding:8px 14px;border-radius:8px;background:var(--accent);color:white;font-weight:600;border:none;cursor:pointer}
+
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .hero{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;padding:40px 0}
+    .hero .title{font-size:2rem;margin:0 0 8px}
+    .hero p{margin:0;color:var(--muted)}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .feature h4{margin:6px 0 0}
+    .cols{display:grid;grid-template-columns:1fr 320px;gap:20px}
+
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:inherit}
+    textarea{min-height:100px}
+
+    footer{margin-top:40px;padding:30px 0;color:var(--muted);font-size:14px;text-align:center}
+
+    /* responsive */
+    @media (max-width:900px){
+      .features{grid-template-columns:repeat(2,1fr)}
+      .cols{grid-template-columns:1fr}
+      header{padding:12px}
+      .hero .title{font-size:1.6rem}
+    }
+    @media (max-width:480px){
+      .features{grid-template-columns:1fr}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <div style="font-weight:700">Sitio Ejemplo</div>
+        <div style="font-size:12px;color:var(--muted)">Rápido. Claro. Editable.</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#features">Funciones</a>
+      <a href="#about">Acerca</a>
+      <a href="#contact">Contacto</a>
+      <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contáctanos</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1 class="title">Página web simple y responsiva</h1>
+        <p>Plantilla lista para editar. Incluye navegación, secciones de características y un formulario de contacto. Abre este archivo en tu navegador para ver y modificar.</p>
+        <div style="margin-top:16px;display:flex;gap:10px">
+          <a class="btn" href="#contact">Empieza</a>
+          <a style="align-self:center;color:var(--muted)" href="#about">Ver más</a>
+        </div>
+      </div>
+
+      <div class="card" aria-hidden="true">
+        <h3 style="margin:0 0 8px">Progreso</h3>
+        <div style="height:8px;background:rgba(255,255,255,0.03);border-radius:6px;overflow:hidden;margin-bottom:12px">
+          <div style="width:65%;height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa)"></div>
+        </div>
+        <p style="margin:0;color:var(--muted)">Esto es solo un ejemplo. Personaliza textos, colores y estructura en el código.</p>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2 style="margin-top:6px">Características</h2>
+      <div class="features">
+        <div class="card feature">
+          <strong>Diseño responsivo</strong>
+          <h4>Se adapta a móviles y pantallas grandes</h4>
+        </div>
+        <div class="card feature">
+          <strong>Fácil de personalizar</strong>
+          <h4>HTML, CSS y JS juntos. Edita y prueba rápido.</h4>
+        </div>
+        <div class="card feature">
+          <strong>Contacto básico</strong>
+          <h4>Formulario con validación mínima en el navegador.</h4>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:22px">
+      <div class="cols">
+        <div class="card">
+          <h3>Sobre esta plantilla</h3>
+          <p style="color:var(--muted)">Plantilla pensada para arrancar rápido en proyectos personales y prototipos. No requiere dependencias externas. Puedes añadir un backend para procesar el formulario o conectarlo a servicios como Formspree o Netlify Forms.</p>
+        </div>
+
+        <aside class="card">
+          <h4>Detalles rápidos</h4>
+          <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+            <li>Archivo único: index.html</li>
+            <li>Responsive con CSS puro</li>
+            <li>Interactividad mínima en JS</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:22px">
+      <h2>Contacto</h2>
+      <div class="card">
+        <form id="contactForm" onsubmit="return handleSubmit(event)">
+          <label>Nombre
+            <input type="text" name="name" required placeholder="Tu nombre" />
+          </label>
+          <label>Email
+            <input type="email" name="email" required placeholder="tu@ejemplo.com" />
+          </label>
+          <label>Mensaje
+            <textarea name="message" required placeholder="¿En qué podemos ayudar?"></textarea>
+          </label>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn" type="submit">Enviar</button>
+            <div id="formStatus" style="color:var(--muted);font-size:13px">No se enviará realmente en esta demo.</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Sitio Ejemplo. Hecho para editar.</div>
+    </footer>
+  </main>
+
+  <script>
+    // año en footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Validación y simulación de envío
+    function handleSubmit(e){
+      e.preventDefault();
+      const f = e.target;
+      const name = f.name.value.trim();
+      const email = f.email.value.trim();
+      const msg = f.message.value.trim();
+      const status = document.getElementById('formStatus');
+      if(!name || !email || !msg){
+        status.textContent = 'Completa todos los campos.';
+        return false;
+      }
+      status.textContent = 'Enviando...';
+      // simulación breve
+      setTimeout(()=>{
+        status.textContent = 'Mensaje enviado (simulado).';
+        f.reset();
+      },800);
+      return false;
+    }
+  </script>
+</body>
+</html>
